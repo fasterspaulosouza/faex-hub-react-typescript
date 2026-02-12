@@ -187,47 +187,45 @@ const Cadastro = () => {
               />
             </FieldGroup>
 
-            <FormRow>
-              <FieldGroup>
-                <FieldLabel>Senha</FieldLabel>
-                <InputWithAdornment>
-                  <StyledInput
-                    type={mostrarSenha ? "text" : "password"}
-                    value={senha}
-                    onChange={(e) => setSenha(e.target.value)}
-                    placeholder="Digite sua senha"
-                    required
-                  />
-                  <AdornmentButton
-                    type="button"
-                    onClick={() => setMostrarSenha(!mostrarSenha)}
-                    aria-label={mostrarSenha ? "Ocultar senha" : "Mostrar senha"}
-                  >
-                    {mostrarSenha ? <VisibilityOff /> : <Visibility />}
-                  </AdornmentButton>
-                </InputWithAdornment>
-              </FieldGroup>
+            <FieldGroup>
+              <FieldLabel>Senha</FieldLabel>
+              <InputWithAdornment>
+                <StyledInput
+                  type={mostrarSenha ? "text" : "password"}
+                  value={senha}
+                  onChange={(e) => setSenha(e.target.value)}
+                  placeholder="Digite sua senha"
+                  required
+                />
+                <AdornmentButton
+                  type="button"
+                  onClick={() => setMostrarSenha(!mostrarSenha)}
+                  aria-label={mostrarSenha ? "Ocultar senha" : "Mostrar senha"}
+                >
+                  {mostrarSenha ? <VisibilityOff /> : <Visibility />}
+                </AdornmentButton>
+              </InputWithAdornment>
+            </FieldGroup>
 
-              <FieldGroup>
-                <FieldLabel>Confirmar Senha</FieldLabel>
-                <InputWithAdornment>
-                  <StyledInput
-                    type={mostrarConfirmarSenha ? "text" : "password"}
-                    value={confirmarSenha}
-                    onChange={(e) => setConfirmarSenha(e.target.value)}
-                    placeholder="Confirme sua senha"
-                    required
-                  />
-                  <AdornmentButton
-                    type="button"
-                    onClick={() => setMostrarConfirmarSenha(!mostrarConfirmarSenha)}
-                    aria-label={mostrarConfirmarSenha ? "Ocultar senha" : "Mostrar senha"}
-                  >
-                    {mostrarConfirmarSenha ? <VisibilityOff /> : <Visibility />}
-                  </AdornmentButton>
-                </InputWithAdornment>
-              </FieldGroup>
-            </FormRow>
+            <FieldGroup>
+              <FieldLabel>Confirmar Senha</FieldLabel>
+              <InputWithAdornment>
+                <StyledInput
+                  type={mostrarConfirmarSenha ? "text" : "password"}
+                  value={confirmarSenha}
+                  onChange={(e) => setConfirmarSenha(e.target.value)}
+                  placeholder="Confirme sua senha"
+                  required
+                />
+                <AdornmentButton
+                  type="button"
+                  onClick={() => setMostrarConfirmarSenha(!mostrarConfirmarSenha)}
+                  aria-label={mostrarConfirmarSenha ? "Ocultar senha" : "Mostrar senha"}
+                >
+                  {mostrarConfirmarSenha ? <VisibilityOff /> : <Visibility />}
+                </AdornmentButton>
+              </InputWithAdornment>
+            </FieldGroup>
 
             <SubmitButton type="submit">Avançar</SubmitButton>
             <BackLink type="button" onClick={() => navigate("/login")}>

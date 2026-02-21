@@ -9,7 +9,34 @@ import PlayCircleFilledRoundedIcon from "@mui/icons-material/PlayCircleFilledRou
 import PublicIcon from "@mui/icons-material/Public";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-import { ActivityCard, ActivityCardAvatarImg, ActivityCardBody, ActivityCardButtonLike, ActivityCardFooter, ActivityCardHeader, ActivityUserInfo, ContentWrapper, DashboardContainer, EditProfileButton, Logoimage, MainContent, PostActionButton, PostActionsRow, PostAvatarImg, PostCard, PostInput, PostInputRow, ProfileAvatarWrapper, ProfileBanner, ProfileCard, ProfileInfoRow, ProfileTexts, PublishButton, RightPanel, SectionTitle } from "./Dashboard.styles";
+import { 
+    ActivityCard, 
+    ActivityCardAvatarImg, 
+    ActivityCardBody, 
+    ActivityCardButtonLike, 
+    ActivityCardFooter, 
+    ActivityCardHeader, 
+    ActivityUserInfo, 
+    ContentWrapper, 
+    DashboardContainer, 
+    EditProfileButton, 
+    Logoimage, 
+    MainContent, 
+    PostActionButton, 
+    PostActionsRow, 
+    PostAvatarImg, 
+    PostCard, 
+    PostInput, 
+    PostInputRow, 
+    ProfileAvatarWrapper, 
+    ProfileBanner, 
+    ProfileCard, 
+    ProfileInfoRow, 
+    ProfileTexts, 
+    PublishButton, 
+    RightPanel, 
+    SectionTitle 
+} from "./Dashboard.styles";
 
 const currentUser = {
   name: "Paulo Souza",

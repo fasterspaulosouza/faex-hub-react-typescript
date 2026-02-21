@@ -363,5 +363,4 @@ export const ActivityCardButtonLike = styled.button`
     svg {
         font-size: 1.05rem;
     }
-
 `;

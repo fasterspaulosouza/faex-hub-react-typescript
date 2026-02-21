@@ -9,7 +9,7 @@ import PlayCircleFilledRoundedIcon from "@mui/icons-material/PlayCircleFilledRou
 import PublicIcon from "@mui/icons-material/Public";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-import { ContentWrapper, DashboardContainer, EditProfileButton, Logoimage, MainContent, PostActionButton, PostActionsRow, PostAvatarImg, PostCard, PostInput, PostInputRow, ProfileAvatarWrapper, ProfileBanner, ProfileCard, ProfileInfoRow, ProfileTexts, PublishButton, RightPanel } from "./Dashboard.styles";
+import { ActivityCard, ActivityCardAvatarImg, ActivityCardBody, ActivityCardButtonLike, ActivityCardFooter, ActivityCardHeader, ActivityUserInfo, ContentWrapper, DashboardContainer, EditProfileButton, Logoimage, MainContent, PostActionButton, PostActionsRow, PostAvatarImg, PostCard, PostInput, PostInputRow, ProfileAvatarWrapper, ProfileBanner, ProfileCard, ProfileInfoRow, ProfileTexts, PublishButton, RightPanel, SectionTitle } from "./Dashboard.styles";
 
 const currentUser = {
   name: "Paulo Souza",
@@ -31,18 +31,21 @@ const activities = [
     name: "Felipe Silva",
     date: "8 de março às 18:00",
     avatar: "/rosto_06.png",
+    post: "/post-01.png"
   },
   {
     id: 2,
     name: "Andreza Souza",
     date: "8 de março às 18:00",
     avatar: "/rosto_07.png",
+    post: "/post-02.png"
   },
   {
     id: 3,
     name: "Felipe Silva",
     date: "8 de março às 18:00",
     avatar: "/rosto_06.png",
+    post: "/post-01.png"
   },
 ];
 
@@ -96,6 +99,32 @@ export default function Dashboard() {
                             </PostActionButton>
                         </PostActionsRow>
                     </PostCard>
+
+                    <SectionTitle>Atividades</SectionTitle>
+
+                    {activities.map((activity) => (
+                        <ActivityCard key={activity.id}>
+                            <ActivityCardHeader>
+                                <ActivityCardAvatarImg src={activity.avatar} alt={activity.name} />
+                                <ActivityUserInfo>
+                                    <strong>{activity.name}</strong>
+                                    <span>
+                                        {activity.date}
+                                        &middot;
+                                        <PublicIcon />
+                                    </span>
+                                </ActivityUserInfo>
+                            </ActivityCardHeader>
+                            <ActivityCardBody>
+                                <img src={activity.post} alt={activity.name} />
+                            </ActivityCardBody>
+                            <ActivityCardFooter>
+                                <ActivityCardButtonLike>
+                                    <FavoriteBorderIcon /> Curtir
+                                </ActivityCardButtonLike>
+                            </ActivityCardFooter>
+                        </ActivityCard>
+                    ))}
                 </MainContent>
 
                 <RightPanel>

@@ -9,12 +9,12 @@ import PlayCircleFilledRoundedIcon from "@mui/icons-material/PlayCircleFilledRou
 import PublicIcon from "@mui/icons-material/Public";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-import { ContentWrapper, DashboardContainer, EditProfileButton, Logoimage, MainContent, ProfileAvatarWrapper, ProfileBanner, ProfileCard, ProfileInfoRow, ProfileTexts, RightPanel } from "./Dashboard.styles";
+import { ContentWrapper, DashboardContainer, EditProfileButton, Logoimage, MainContent, PostActionButton, PostActionsRow, PostAvatarImg, PostCard, PostInput, PostInputRow, ProfileAvatarWrapper, ProfileBanner, ProfileCard, ProfileInfoRow, ProfileTexts, PublishButton, RightPanel } from "./Dashboard.styles";
 
 const currentUser = {
   name: "Paulo Souza",
   email: "paulo.csouzas@outlook.com",
-  avatar: "/rosto_03.png",
+  avatar: "/perfil.jpg",
 };
 
 const friends = [
@@ -75,6 +75,27 @@ export default function Dashboard() {
                         </ProfileInfoRow>
                     
                     </ProfileCard>
+
+                    <PostCard>
+                        <PostInputRow>
+                            <PostAvatarImg src={currentUser.avatar} alt={currentUser.name} />
+                            <PostInput 
+                                type="text"
+                                placeholder="Comece uma publicação"
+                                value={postText}
+                                onChange={(e) => setPostText(e.target.value)}
+                            />
+                            <PublishButton>Publicar</PublishButton>
+                        </PostInputRow>
+                        <PostActionsRow>
+                            <PostActionButton>
+                                <VideoLibraryIcon /> Vídeo
+                            </PostActionButton>
+                            <PostActionButton>
+                                <PhotoIcon /> Foto
+                            </PostActionButton>
+                        </PostActionsRow>
+                    </PostCard>
                 </MainContent>
 
                 <RightPanel>

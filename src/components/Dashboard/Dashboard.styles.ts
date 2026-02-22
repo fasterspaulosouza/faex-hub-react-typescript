@@ -49,7 +49,6 @@ export const ProfileCard = styled.div`
     background: #fff;
     border-radius: 22px;
     overflow: hidden;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 `;
 
 export const ProfileBanner = styled.div`
@@ -135,8 +134,8 @@ export const EditProfileButton = styled.button`
 export const PostCard = styled.div`
     background: #FFF;
     border-radius: 20px;
+    border: 2px solid #D0D5DD;
     padding: 16px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 
     display: flex;
     flex-direction: column;
@@ -147,25 +146,32 @@ export const PostInputRow = styled.div`
     display: flex;
     align-items: center;
     gap: 8px;
-`
+`;
 
-export const PostAvatarImg = styled.img`
+export const PostAvatarImage = styled.img`
     width: 45px;
     height: 45px;
     border-radius: 50%;
     object-fit: cover;
-    flex-shrink: 0; /* Mantém tamanho mesmo com pouco espaço */
+    flex-shrink: 0; /* Mantém o tamanho mesmo com pouco espaço */
 `;
 
 export const PostInput = styled.input`
     flex: 1;
     border: 1px solid #D0D5DD;
-    padding: 10px 14px;
     border-radius: 8px;
     box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+    padding: 10px 14px;
     outline: none;
+    
+    color: #667085;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
 
-    transition: 
+    transition:
         border-color 1s ease,
         background 1s ease;
     &::placeholder {
@@ -173,26 +179,19 @@ export const PostInput = styled.input`
     }
     &:focus {
         border-color: #667eea;
-        background: #fff;
+        background: #fffç
     }
-
-    color: #667085;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
 `;
 
-export const PublishButton = styled.button`
+export const PostPublishButton = styled.button`
     width: 106px;
     background: #101828;
     border: none;
     border-radius: 8px;
     padding: 8px 14px;
     cursor: pointer;
-    
-    color:#FFF;
+
+    color: #FFF;
     font-family: Inter;
     font-size: 12px;
     font-style: normal;
@@ -200,15 +199,14 @@ export const PublishButton = styled.button`
     line-height: 20px;
 
     transition:
-        background 1s ease,
-        border-color 1s ease;
-
+        border-color 1s ease,
+        background 1s ease;
     &:hover {
         background: #0f1946;
     }
 `;
 
-export const PostActionsRow = styled.div`
+export const PostActionRow = styled.div`
     display: flex;
     gap: 16px;
 `;
@@ -223,7 +221,7 @@ export const PostActionButton = styled.button`
     display: flex;
     align-items: center;
     gap: 8px;
-    
+
     color: #101828;
     font-family: Inter;
     font-size: 12px;
@@ -236,9 +234,8 @@ export const PostActionButton = styled.button`
     }
 
     transition:
-        background 1s ease,
-        border-color 1s ease;
-
+        border-color 1s ease,
+        background 1s ease;
     &:hover {
         background: #f4f5f9;
     }
@@ -258,15 +255,13 @@ export const ActivityCard = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     gap: 16px;
-    
+
     align-self: stretch;
 
     border-radius: 20px;
     border: 2px solid #D0D5DD;
-
-    background: #fff;
 `;
 
 export const ActivityCardHeader = styled.div`
@@ -277,25 +272,24 @@ export const ActivityCardHeader = styled.div`
     width: 100%;
 `;
 
-export const ActivityCardAvatarImg = styled.img`
+export const ActivityCardAvatarImage = styled.img`
     width: 52px;
     height: 52px;
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
-`
+`;
 
-export const ActivityUserInfo = styled.div`
+export const ActivityCardUserInfo = styled.div`
     flex: 1;
 
     strong {
-        display: block;
         color: #101828;
         font-family: "Lexend Deca";
         font-size: 16px;
         font-style: normal;
         font-weight: 600;
-        line-height: 30px;
+        line-height: 30px; /* 187.5% */
         letter-spacing: -0.71px;
     }
 
@@ -314,7 +308,7 @@ export const ActivityUserInfo = styled.div`
         svg {
             font-size: 0.8rem;
         }
-    }   
+    }
 `;
 
 export const ActivityCardBody = styled.div`
@@ -333,7 +327,7 @@ export const ActivityCardFooter = styled.div`
     padding: 0 16px 16px 16px;
 `;
 
-export const ActivityCardButtonLike = styled.button`
+export const ActivityCardButtonLike = styled.button `
     display: flex;
     align-items: center;
     gap: 8px;
@@ -343,7 +337,7 @@ export const ActivityCardButtonLike = styled.button`
     border-radius: 8px;
     padding: 6px 14px;
     cursor: pointer;
-    
+
     color: #101828;
     font-family: Inter;
     font-size: 16px;
@@ -351,16 +345,71 @@ export const ActivityCardButtonLike = styled.button`
     font-weight: 500;
     line-height: 30px;
 
+    svg {
+        font-size: 1.3rem;
+    }
+
     transition:
         background 1s ease,
         color 1s ease;
-
     &:hover {
         background: #fff5f5;
         color: #e53e3e;
     }
+`;
 
-    svg {
-        font-size: 1.05rem;
+export const FriendsCard = styled.div`
+    border-radius: 20px;
+    border: 2px solid #D0D5DD;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+`;
+
+export const FriendItem = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 11px 14px;
+    cursor: pointer;
+    
+    transition: background 1s ease;
+    &:not(:last-child) {
+        border-bottom: 1px solid #D0D5DD;
+    }
+    &:hover {
+        background: #f7f8fc;
+    }
+`;
+
+export const FriendAvatarImage = styled.img`
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+`;
+
+export const FriendInfo = styled.div`
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    strong {
+        color: #101828;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 30px;
+    }
+
+    span {
+        color: #667085;
+        font-family: Inter;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 19.5px;
     }
 `;

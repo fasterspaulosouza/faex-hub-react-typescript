@@ -9,33 +9,37 @@ import PlayCircleFilledRoundedIcon from "@mui/icons-material/PlayCircleFilledRou
 import PublicIcon from "@mui/icons-material/Public";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-import { 
-    ActivityCard, 
-    ActivityCardAvatarImg, 
-    ActivityCardBody, 
-    ActivityCardButtonLike, 
-    ActivityCardFooter, 
-    ActivityCardHeader, 
-    ActivityUserInfo, 
+import {
+    ActivityCard,
+    ActivityCardAvatarImage,
+    ActivityCardBody,
+    ActivityCardButtonLike,
+    ActivityCardFooter,
+    ActivityCardHeader,
+    ActivityCardUserInfo,
     ContentWrapper, 
     DashboardContainer, 
     EditProfileButton, 
+    FriendAvatarImage, 
+    FriendInfo, 
+    FriendItem, 
+    FriendsCard, 
     Logoimage, 
-    MainContent, 
-    PostActionButton, 
-    PostActionsRow, 
-    PostAvatarImg, 
-    PostCard, 
-    PostInput, 
-    PostInputRow, 
+    MainContent,
+    PostActionButton,
+    PostActionRow,
+    PostAvatarImage,
+    PostCard,
+    PostInput,
+    PostInputRow,
+    PostPublishButton,
     ProfileAvatarWrapper, 
     ProfileBanner, 
     ProfileCard, 
     ProfileInfoRow, 
-    ProfileTexts, 
-    PublishButton, 
-    RightPanel, 
-    SectionTitle 
+    ProfileTexts,
+    RightPanel,
+    SectionTitle,
 } from "./Dashboard.styles";
 
 const currentUser = {
@@ -105,26 +109,29 @@ export default function Dashboard() {
                         </ProfileInfoRow>
                     
                     </ProfileCard>
-
+                
                     <PostCard>
+
                         <PostInputRow>
-                            <PostAvatarImg src={currentUser.avatar} alt={currentUser.name} />
+                            <PostAvatarImage src={currentUser.avatar} alt={currentUser.name} />
                             <PostInput 
-                                type="text"
-                                placeholder="Comece uma publicação"
+                                type="text" 
+                                placeholder="Comece uma publicação" 
                                 value={postText}
                                 onChange={(e) => setPostText(e.target.value)}
                             />
-                            <PublishButton>Publicar</PublishButton>
+                            <PostPublishButton>Publicar</PostPublishButton>
                         </PostInputRow>
-                        <PostActionsRow>
+
+                        <PostActionRow>
                             <PostActionButton>
-                                <VideoLibraryIcon /> Vídeo
+                                <VideoLibraryIcon /> Video
                             </PostActionButton>
                             <PostActionButton>
                                 <PhotoIcon /> Foto
                             </PostActionButton>
-                        </PostActionsRow>
+                        </PostActionRow>
+
                     </PostCard>
 
                     <SectionTitle>Atividades</SectionTitle>
@@ -132,15 +139,15 @@ export default function Dashboard() {
                     {activities.map((activity) => (
                         <ActivityCard key={activity.id}>
                             <ActivityCardHeader>
-                                <ActivityCardAvatarImg src={activity.avatar} alt={activity.name} />
-                                <ActivityUserInfo>
+                                <ActivityCardAvatarImage src={activity.avatar} alt={activity.name} />
+                                <ActivityCardUserInfo>
                                     <strong>{activity.name}</strong>
                                     <span>
-                                        {activity.date}
-                                        &middot;
+                                        {activity.date} 
+                                        &middot; 
                                         <PublicIcon />
                                     </span>
-                                </ActivityUserInfo>
+                                </ActivityCardUserInfo>
                             </ActivityCardHeader>
                             <ActivityCardBody>
                                 <img src={activity.post} alt={activity.name} />
@@ -155,7 +162,20 @@ export default function Dashboard() {
                 </MainContent>
 
                 <RightPanel>
-                    <p>painel da direita</p>
+                    <SectionTitle>Amigos</SectionTitle>
+
+                    <FriendsCard>
+                        {friends.map((friend) => (
+                            <FriendItem key={friend.email}>
+                                <FriendAvatarImage src={friend.avatar} alt={friend.name} />
+                                <FriendInfo>
+                                    <strong>{friend.name}</strong>
+                                    <span>{friend.email}</span>
+                                </FriendInfo>
+                            </FriendItem>
+                        ))}
+                    </FriendsCard>
+
                 </RightPanel>
             </ContentWrapper>
 

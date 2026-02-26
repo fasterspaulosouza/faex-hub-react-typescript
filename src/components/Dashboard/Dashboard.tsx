@@ -5,7 +5,6 @@ import Sidebar from "../Sidebar/Sidebar";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import PhotoIcon from "@mui/icons-material/Photo";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import PlayCircleFilledRoundedIcon from "@mui/icons-material/PlayCircleFilledRounded";
 import PublicIcon from "@mui/icons-material/Public";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
@@ -17,6 +16,7 @@ import {
     ActivityCardFooter,
     ActivityCardHeader,
     ActivityCardUserInfo,
+    AniversarioCard,
     ContentWrapper, 
     DashboardContainer, 
     EditProfileButton, 
@@ -40,6 +40,7 @@ import {
     ProfileTexts,
     RightPanel,
     SectionTitle,
+    SendGiftButton,
 } from "./Dashboard.styles";
 
 const currentUser = {
@@ -175,6 +176,16 @@ export default function Dashboard() {
                             </FriendItem>
                         ))}
                     </FriendsCard>
+
+                    <AniversarioCard>
+                        <img src="/Aniversario.png" alt="" />
+                        <h2>Aniversariante do mês</h2>
+                        <p><strong>Marcela Silva</strong> está fazendo aniversario hoje, envie um presente para ela!</p>
+                        <hr />
+                        <SendGiftButton>
+                            Enviar presente <ArrowForwardIosIcon />
+                        </SendGiftButton>
+                    </AniversarioCard>
 
                 </RightPanel>
             </ContentWrapper>

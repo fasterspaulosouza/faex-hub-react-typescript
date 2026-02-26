@@ -17,7 +17,7 @@ import {
 
 // Lista de objeto menu
 const navItems = [
-    { icon: <HomeRoundedIcon />, label: "Início", path: "/dashboard" },
+    { icon: <HomeRoundedIcon />, label: "Início", path: "/" },
     { icon: <PeopleRoudedIcon />, label: "Amigos", path: "/amigos"},
     { icon: <CardGiftcardIcon />, label: "Presentes", path: "/presentes"},
     { icon: <SettingsRoundedIcon />, label: "Configuração", path: "/configuracao"},

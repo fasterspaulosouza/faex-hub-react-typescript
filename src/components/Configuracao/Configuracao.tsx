@@ -1,18 +1,5 @@
-import MainContents from "../MainContent/MainContent";
-import { ContentWrapper, DashboardContainer } from "../MainContent/MainContent.styles";
-import RightPanels from "../RightPanel/RightPanel";
-import Sidebar from "../Sidebar/Sidebar";
+import Perfil from "../Perfil/Perfil";
 
 export default function Configuracao() {
-    return (
-        <DashboardContainer>
-            <Sidebar />
-
-            <ContentWrapper>
-                <MainContents />
-
-                <RightPanels />
-            </ContentWrapper>
-        </DashboardContainer>
-    )
+    return  <Perfil />;
 }

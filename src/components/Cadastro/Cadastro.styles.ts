@@ -148,6 +148,7 @@ interface FieldGroupProps {
 export const FieldGroup = styled.div<FieldGroupProps>`
   flex: ${(props) => props.$flex || 1};
   margin-bottom: 18px;
+  width: 100%;
 `;
 
 export const FieldLabel = styled.label`

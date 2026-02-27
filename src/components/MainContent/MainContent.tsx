@@ -1,7 +1,4 @@
-import { useLocation } from "react-router-dom";
-
-import Atividades from "../Publicacoes/Atividades/Atividades";
-import PostCards from "../Publicacoes/PostCard/PostCard";
+import { Outlet } from "react-router-dom";
 
 import {
     EditProfileButton,
@@ -22,8 +19,6 @@ const currentUser = {
 };
 
 export default function MainContents() {
-    const location = useLocation();
-
     return (
         <MainContent>
             <ProfileCard>
@@ -45,15 +40,9 @@ export default function MainContents() {
                     <EditProfileButton>Editar Perfil</EditProfileButton>
                 </ProfileInfoRow>
 
-                {location.pathname === "/" && (
-                    <>
-                        <PostCards />
-
-                        <Atividades />
-                    </>
-                )}
-            
             </ProfileCard>
+
+            <Outlet />
         </MainContent>
     )
 }

@@ -1,18 +1,11 @@
-import MainContents from "../MainContent/MainContent";
-import { ContentWrapper, DashboardContainer } from "../MainContent/MainContent.styles";
-import RightPanels from "../RightPanel/RightPanel";
-import Sidebar from "../Sidebar/Sidebar";
+import Atividades from "../Publicacoes/Atividades/Atividades";
+import PostCards from "../Publicacoes/PostCard/PostCard";
 
 export default function Home() {
     return (
-        <DashboardContainer>
-            <Sidebar />
-
-            <ContentWrapper>
-                <MainContents />
-
-                <RightPanels />
-            </ContentWrapper>
-        </DashboardContainer>
+        <>
+            <PostCards />
+            <Atividades />
+        </>
     )
 }

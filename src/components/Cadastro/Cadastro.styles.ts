@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 // ============================================================
 // CONTAINER E CARD
@@ -92,13 +92,11 @@ export const StepCircle = styled.div<StepCircleProps>`
   font-weight: 600;
   transition: all 0.3s ease;
 
-  background: ${(props) =>
-    props.$active || props.$completed ? "#1e2533" : "#e2e8f0"};
-  color: ${(props) =>
-    props.$active || props.$completed ? "#fff" : "#a0aec0"};
+  background: ${props =>
+    props.$active || props.$completed ? '#1e2533' : '#e2e8f0'};
+  color: ${props => (props.$active || props.$completed ? '#fff' : '#a0aec0')};
   border: 2px solid
-    ${(props) =>
-      props.$active || props.$completed ? "#1e2533" : "#e2e8f0"};
+    ${props => (props.$active || props.$completed ? '#1e2533' : '#e2e8f0')};
 
   & svg {
     font-size: 20px;
@@ -111,8 +109,8 @@ interface StepLabelProps {
 
 export const StepLabel = styled.span<StepLabelProps>`
   font-size: 0.85rem;
-  font-weight: ${(props) => (props.$active ? "600" : "400")};
-  color: ${(props) => (props.$active ? "#1e2533" : "#a0aec0")};
+  font-weight: ${props => (props.$active ? '600' : '400')};
+  color: ${props => (props.$active ? '#1e2533' : '#a0aec0')};
 `;
 
 export const StepLine = styled.div`
@@ -146,7 +144,7 @@ interface FieldGroupProps {
 }
 
 export const FieldGroup = styled.div<FieldGroupProps>`
-  flex: ${(props) => props.$flex || 1};
+  flex: ${props => props.$flex || 1};
   margin-bottom: 18px;
   width: 100%;
 `;
@@ -173,7 +171,9 @@ export const StyledInput = styled.input`
   background: #fff;
   outline: none;
   color: #2d3748;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 
   &::placeholder {
     color: #a0aec0;
@@ -241,7 +241,9 @@ export const StyledSelect = styled.select`
   background-repeat: no-repeat;
   background-position: right 14px center;
   padding-right: 36px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 
   &:hover {
     border-color: #b0b8c9;
@@ -265,7 +267,9 @@ export const StyledTextarea = styled.textarea`
   color: #2d3748;
   resize: vertical;
   min-height: 80px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 
   &::placeholder {
     color: #a0aec0;
@@ -299,7 +303,7 @@ export const RadioOption = styled.label`
   font-size: 0.9rem;
   color: #2d3748;
 
-  input[type="radio"] {
+  input[type='radio'] {
     width: 18px;
     height: 18px;
     accent-color: #1e2533;
@@ -325,7 +329,10 @@ export const SubmitButton = styled.button`
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease,
+    box-shadow 0.2s ease;
 
   &:hover {
     background: #151b27;
@@ -353,5 +360,41 @@ export const BackLink = styled.button`
   &:hover {
     color: #2d3748;
     text-decoration: underline;
+  }
+`;
+
+export const CepErroText = styled.span`
+  display: block;
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: rgba(176, 59, 32, 0.93);
+`;
+
+export const CepLoaddingWrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  & ${StyledInput} {
+    padding-right: 44px;
+  }
+`;
+
+export const CepSpinner = styled.div`
+  positon: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border: 2px solid #e2e8f0;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+
+  @keyframes spin {
+    to {
+      transform: translateY(-50%) rotate(360deg);
+    }
   }
 `;

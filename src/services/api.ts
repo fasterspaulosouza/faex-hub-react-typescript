@@ -122,7 +122,7 @@ export const api = {
 
   getAmizades: (pagina = 1, limite = 50) =>
     request<PaginatedResponse<Amizade>>(
-      `/amizade?pagina=${pagina}&limite=${limite}`,
+      `/amizades?pagina=${pagina}&limite=${limite}`,
     ),
 
   getAmizadesEnviadas: () =>

@@ -57,16 +57,90 @@ export interface Usuario {
   [key: string]: unknown;
 }
 
+export interface AutorPublicacao {
+  id: string | number;
+  nome: string;
+  foto?: string;
+}
+
+export interface Publicacao {
+  id: string | number;
+  tipo: 'TEXTO' | 'IMAGEM' | 'VIDEO';
+  conteudo: string;
+  visibilidade: 'PUBLICO' | 'AMIGOS';
+  ativo: boolean;
+  createdAt: string;
+  autor: AutorPublicacao;
+  _count?: {
+    curtidas: number;
+    comentarios: number;
+  };
+}
+
+export interface AmizadeUsuario {
+  id: string | number;
+  nome: string;
+  email: string;
+  foto?: string;
+}
+
+export interface Amizade {
+  id: string | number;
+  status: 'PENDENTE' | 'ACEITA' | 'REJEITADA';
+  solicitante: AmizadeUsuario;
+  receptor: AmizadeUsuario;
+}
+
+export interface PaginatedResponse<T> {
+  dados?: T[];
+  data?: T[];
+  total: number;
+}
+
 export const api = {
   login: (payload: LoginPayload) =>
     request<AuthResponse>('/auth/login', {
       method: 'POST',
       body: JSON.stringify(payload),
     }),
+
   cadastro: (payload: CadastroPayload) =>
     request<AuthResponse>('/auth/cadastro', {
       method: 'POST',
       body: JSON.stringify(payload),
     }),
+
   getMe: () => request<Usuario>('/auth/me'),
+
+  getPublicacoes: (pagina = 1, limite = 20) =>
+    request<PaginatedResponse<Publicacao>>(
+      `/publicacoes?ativo=true&pagina=${pagina}&limite=${limite}`,
+    ),
+
+  curtirPublicacao: (id: string | number) =>
+    request<unknown>(`/publicacoes/${id}/curtidas`, { method: 'POST' }),
+
+  getAmizades: (pagina = 1, limite = 50) =>
+    request<PaginatedResponse<Amizade>>(
+      `/amizade?pagina=${pagina}&limite=${limite}`,
+    ),
+
+  getAmizadesEnviadas: () =>
+    request<PaginatedResponse<Amizade> | Amizade[]>('/amizades/enviadas'),
+
+  getUsuarios: (pagina = 1, limite = 50) =>
+    request<PaginatedResponse<Usuario> | Usuario[]>(
+      `/usuarios?pagina=${pagina}&limite=${limite}`,
+    ),
+
+  buscarUsuarios: (pagina = 1, limite = 50) =>
+    request<PaginatedResponse<Usuario> | Usuario[]>(
+      `/usuarios/buscar/avancado?pagina=${pagina}&limite=${limite}`,
+    ),
+
+  enviarSolicitacao: (receptorId: string | number) =>
+    request<Amizade>('/amizades', {
+      method: 'POST',
+      body: JSON.stringify({ receptorId }),
+    }),
 };

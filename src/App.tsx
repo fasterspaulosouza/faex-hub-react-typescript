@@ -13,9 +13,11 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <Routes>
+          {/* Rotas publicas */}
           <Route path='/login' element={<Login />} />
           <Route path='/cadastro' element={<Cadastro />} />
 
+          {/* Rotas privadas */}
           <Route element={<PrivateRoute />}>
             <Route element={<Layout />}>
               <Route path='/' element={<Home />} />

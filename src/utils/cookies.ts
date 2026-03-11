@@ -3,10 +3,7 @@ const TOKEN_KEY = 'faex_token';
 export function setToken(token: string, days = 7): void {
   const expires = new Date();
   expires.setDate(expires.getDate() + days);
-  document.cookie = `${TOKEN_KEY}=${token}; 
-  expires=${expires.toUTCString()}; 
-  path=/; 
-  SameSite=Strict`;
+  document.cookie = `${TOKEN_KEY}=${token}; expires=${expires.toUTCString()}; path=/; SameSite=Strict`;
 }
 
 export function getToken(): string | null {
@@ -17,8 +14,5 @@ export function getToken(): string | null {
 }
 
 export function removeToken(): void {
-  document.cookie = `${TOKEN_KEY}=; 
-    expires=Thu, 
-    01 Jan 1970 00:00:00 UTC; 
-    path=/;`;
+  document.cookie = `${TOKEN_KEY}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
 }

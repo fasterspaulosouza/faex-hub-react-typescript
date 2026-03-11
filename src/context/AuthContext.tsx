@@ -42,6 +42,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   async function login(email: string, senha: string) {
     const { accessToken } = await api.login({ email, senha });
+    console.log(accessToken);
     setToken(accessToken);
     const userData = await api.getMe();
     setUser(userData);

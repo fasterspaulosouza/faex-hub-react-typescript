@@ -9,6 +9,7 @@ import {
   SectionTitle,
 } from './Atividades.styles';
 
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 import PublicIcon from '@mui/icons-material/Public';
@@ -159,8 +160,15 @@ export default function Atividades() {
             )}
           </ActivityCardBody>
           <ActivityCardFooter>
-            <ActivityCardButtonLike>
-              <FavoriteBorderIcon /> Curtir
+            <ActivityCardButtonLike onClick={() => handleLike(publicacao.id)}>
+              {likedPosts.has(publicacao.id) ? (
+                <FavoriteIcon style={{ color: '#e53e3e' }} />
+              ) : (
+                <FavoriteBorderIcon />
+              )}
+              Curtir
+              {(publicacao._count?.curtidas ?? 0) > 0 &&
+                `(${publicacao._count!.curtidas})`}
             </ActivityCardButtonLike>
           </ActivityCardFooter>
         </ActivityCard>

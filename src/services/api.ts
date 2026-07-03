@@ -1,6 +1,6 @@
 import { getToken } from '../utils/cookies';
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'http://10.0.10.185:3000';
 
 async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   const token = getToken();
